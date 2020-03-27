@@ -177,6 +177,16 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.com.google.ime.height_ratio=1.05 \
     ro.com.google.ime.emoji_key=false
 
+# Face Unlock
+TARGET_FACE_UNLOCK_SUPPORTED := false
+ifneq ($(TARGET_DISABLE_ALTERNATIVE_FACE_UNLOCK), true)
+PRODUCT_PACKAGES += \
+    FaceUnlockService
+TARGET_FACE_UNLOCK_SUPPORTED := true
+endif
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.face.moto_unlock_service=$(TARGET_FACE_UNLOCK_SUPPORTED)
+
 DEVICE_PACKAGE_OVERLAYS += vendor/bootleggers/overlay/common
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
