@@ -127,6 +127,10 @@ PRODUCT_PACKAGES += \
     fsck.exfat \
     mkfs.exfat
 
+# Long Screenshot
+PRODUCT_PACKAGES += \
+    StitchImage
+
 # Openssh
 PRODUCT_PACKAGES += \
     scp \
